@@ -8,3 +8,4 @@ clf.fit(x_train_flat, y_train)
 y_pred = clf.predict(x_test_flat)
 print("Acc:", accuracy_score(y_test, y_pred))
 print(classification_report(y_test, y_pred))
+
