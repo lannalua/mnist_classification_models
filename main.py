@@ -2,10 +2,9 @@
 Import do dataset MNIST e pré-processamento
 """
 #uso do mnist já incluso no keras 
-
+import tensorflow as tf
 from tensorflow.keras.datasets import mnist # type: ignore
 import matplotlib.pyplot as plt
-import numpy as np
 
 # keras (baixa o dataset, divide dados, retorna na tupla)
 (x_train, y_train), (x_test, y_test) = mnist.load_data()
@@ -38,3 +37,5 @@ x_test_cnn = x_test.reshape(-1,28,28,1)
 from tensorflow.keras.utils import to_categorical # type: ignore
 y_train_cat = to_categorical(y_train, 10)
 y_test_cat  = to_categorical(y_test, 10)
+
+
