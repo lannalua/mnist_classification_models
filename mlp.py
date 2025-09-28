@@ -1,17 +1,19 @@
 import numpy as np
 from main import *
 
-from tensorflow.keras.models import Sequential  # type: ignore
-from tensorflow.keras.layers import Flatten, Dense, Dropout  # type: ignore
-from tensorflow.keras.callbacks import EarlyStopping  # type: ignore
+from keras.models import Sequential  
+from keras.layers import Flatten, Dense, Dropout, Input 
+from keras.callbacks import EarlyStopping
 
 model = Sequential([
-    Flatten(input_shape=(28, 28)), #784, achatado
+    Input(shape=(28,28)),
+    Flatten(), #784, achatado
     Dense(256, activation='relu'),
     Dropout(0.3),
     Dense(128, activation='relu'),
     Dense(10, activation='softmax') # 10 um pra cada dígito
 ])
+
 model.compile(optimizer='adam', loss='categorical_crossentropy',
               metrics=['accuracy'])
 
