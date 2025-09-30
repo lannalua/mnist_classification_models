@@ -9,8 +9,8 @@ model = Sequential([
     Input(shape=(28,28)),
     Flatten(), #784, achatado
     Dense(256, activation='relu'),
-    Dropout(0.3),
-    Dense(128, activation='relu'),
+    Dropout(0.4),
+    #Dense(128, activation='relu'),
     Dense(10, activation='softmax') # 10 um pra cada dígito
 ])
 
@@ -19,7 +19,7 @@ model.compile(optimizer='adam', loss='categorical_crossentropy',
 
 es = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 history = model.fit(x_train, y_train_cat, validation_split=0.1,
-                    epochs=30, batch_size=128, callbacks=[es])
+                    epochs=30, batch_size=64, callbacks=[es])
 
 # histórico de métricas
 acc = history.history['accuracy']
@@ -32,6 +32,6 @@ print("Média validação accuracy:", np.mean(val_acc))
 print("Média treino loss:", np.mean(loss))
 print("Média validação loss:", np.mean(val_loss))
 
-test_loss, test_acc = model.evaluate(x_test, y_test_cat, verbose=0)
+test_loss, test_acc = model.evaluate(x_test, y_test_cat, verbose=0)# type: ignore
 print(f"Acurácia no teste: {test_acc:.4f}")
 print(f"Perda no teste: {test_loss:.4f}")
