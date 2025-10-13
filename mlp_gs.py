@@ -6,7 +6,6 @@ from keras.layers import Flatten, Dense, Dropout
 from scikeras.wrappers import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 
-
 # Encapsular a criação do modelo em uma função
 def create_model(neurons_per_layer=(256, 128), dropout_rate=0.3, optimizer='adam', activation='relu'):
   model = Sequential()
