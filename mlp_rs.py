@@ -11,7 +11,6 @@ from scipy.stats import uniform
 
 es = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 
-
 def create_model(neurons_per_layer=(256, 128), dropout_rate=0.3, optimizer='adam', activation='relu'):
   model = Sequential()
   model.add(Flatten(input_shape=(28, 28)))
