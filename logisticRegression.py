@@ -45,5 +45,5 @@ with open("results.txt", "a") as f:
     f.close()
 
 
-print("Resultados salvos em logistic_regression_results.txt")
+print("Resultados salvos em results.txt")
 

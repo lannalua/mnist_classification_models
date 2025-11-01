@@ -1,13 +1,10 @@
-Logistic regression:
-
-Accurary inicial: 0.7766
-
---- Resultados para diferentes valores de C ---
-C = 0.25: Accuracy = 0.6450
-C = 0.5: Accuracy = 0.7112
-C = 0.75: Accuracy = 0.7380
-C = 1: Accuracy = 0.7766
-C = 1.25: Accuracy = 0.7640
-C = 1.5: Accuracy = 0.7999
-C = 1.75: Accuracy = 0.7786
-C = 2: Accuracy = 0.8119
+Logistic regression 
+Accurary inicial: 0.926--- Resultados para diferentes valores de C ---
+C = 0.25: Accuracy = 0.9267
+C = 0.5: Accuracy = 0.9261
+C = 0.75: Accuracy = 0.9261
+C = 1: Accuracy = 0.9260
+C = 1.25: Accuracy = 0.9264
+C = 1.5: Accuracy = 0.9253
+C = 1.75: Accuracy = 0.9256
+C = 2: Accuracy = 0.9255
