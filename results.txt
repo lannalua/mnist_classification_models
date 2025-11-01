@@ -8,3 +8,16 @@ C = 1.25: Accuracy = 0.9264
 C = 1.5: Accuracy = 0.9253
 C = 1.75: Accuracy = 0.9256
 C = 2: Accuracy = 0.9255
+
+
+MLP: 
+Média treino accuracy: 0.9702154939824884
+Média validação accuracy: 0.978242429819974
+Média treino loss: 0.0957330356944691
+Média validação loss: 0.07654052566398274
+Média validação accuracy: 0.978242429819974
+Média treino loss: 0.0957330356944691
+Média validação loss: 0.07654052566398274
+Acurácia no teste: 0.9789
+Perda no teste: 0.0685
+

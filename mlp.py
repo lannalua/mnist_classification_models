@@ -13,7 +13,7 @@ model = Sequential([
     Flatten(),
     Dense(256, activation='relu'),
     Dropout(0.3),
-    # Dense(128, activation='relu'),
+    Dense(128, activation='relu'),
     Dense(10, activation='softmax')  # 10 um pra cada dígito
 ])
 model.compile(optimizer='adam', loss='categorical_crossentropy',
