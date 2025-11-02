@@ -1,0 +1,89 @@
+MLP: 
+Média treino accuracy: 0.9702154939824884
+Média validação accuracy: 0.978242429819974
+Média treino loss: 0.0957330356944691
+Média validação loss: 0.07654052566398274
+Média validação accuracy: 0.978242429819974
+Média treino loss: 0.0957330356944691
+Média validação loss: 0.07654052566398274
+Acurácia no teste: 0.9789
+Perda no teste: 0.0685
+
+
+MLP: 
+MLP - Grid Search v1: 
+Time: 25 min
+{'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': 0.3, 'model__neurons_per_layer': (256,), 'model__optimizer': 'rmsprop'}
+Média treino accuracy: 0.987666666507721
+Média validação accuracy: 0.9825333237648011
+Média treino loss: 0.038764575868844985
+Média validação loss: 0.062199833989143374
+Acurácia no teste: 0.9812
+Perda no teste: 0.0655
+OBS: Overfit
+
+MLP - Grid Search v2: 
+Time: 45 min
+att: 'model__neurons_per_layer': (128,)
+{'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': 0.4, 'model__neurons_per_layer': (256, 128), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9817407369613648
+Média validação accuracy: 0.9827999949455262
+Média treino loss: 0.0570231944322586
+Média validação loss: 0.05993145853281021
+Acurácia no teste: 0.9819
+Perda no teste: 0.0615
+
+MLP - Random Search v1:
+Melhor score (acurácia média na validação cruzada): 0.9739
+Melhores parâmetros encontrados:
+{'batch_size': 32, 'model__activation': 'relu', 'model__dropout_rate': np.float64(0.5439761626945283), 'model__neurons_per_layer': (256,), 'model__optimizer': 'adam'}
+Acurácia do melhor modelo no conjunto de teste: 0.9800
+Perda do melhor modelo no conjunto de teste: 0.0686
+
+MLP - Random Search v2: 
+Time: 30.244801588850002
+{'batch_size': 32, 'model__activation': 'relu', 'model__dropout_rate': np.float64(0.5439761626945283), 'model__neurons_per_layer': (256,), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9737499952316284
+Média validação accuracy: 0.981208324432373
+Média treino loss: 0.08184092491865158
+Média validação loss: 0.0728985108435154
+Acurácia no teste: 0.9790
+Perda no teste: 0.0686
+
+
+
+MLP - Random Search v3: 
+Time: 32.552949967233324 min 
+Add: n_iters: 15. 'model__neurons_per_layer': (128,), (128, 64)] 
+{'batch_size': 32, 'model__activation': 'relu', 'model__dropout_rate': np.float64(0.20530598446394663), 'model__neurons_per_layer': (256,), 'model__optimizer': 'rmsprop'}
+Média treino accuracy: 0.985432098309199
+Média validação accuracy: 0.9826944569746653
+Média treino loss: 0.04962537934382757
+Média validação loss: 0.07688897599776585
+Acurácia no teste: 0.9774
+Perda no teste: 0.0791
+
+
+
+MLP - Random Search v4: (melhor)
+Time: 43.577915871466665 min 
+Add: 'model__neurons_per_layer': (128,), n_iters:15, patiente:5, dropout: 0,2-0,5 
+{'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': np.float64(0.5037724259507192), 'model__neurons_per_layer': (256,), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9825925997325352
+Média validação accuracy: 0.9832381095205035
+Média treino loss: 0.05333632869379861
+Média validação loss: 0.061834068702799935
+Acurácia no teste: 0.9802
+Perda no teste: 0.0654
+
+MLP - Random Search v5: 
+Time: 23.441043345116668 min 
+Add: batch_size: tirei 32, add 256, n_iters:15, patiente:7, dropout: 0,2-0,5 
+{'batch_size': 256, 'model__activation': 'relu', 'model__dropout_rate': np.float64(0.5037724259507192), 'model__neurons_per_layer': (256,), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9833287000656128
+Média validação accuracy: 0.9840555638074875
+Média treino loss: 0.052120366133749485
+Média validação loss: 0.06016521621495485
+Acurácia no teste: 0.9789
+Perda no teste: 0.0659
+

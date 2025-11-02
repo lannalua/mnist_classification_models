@@ -150,7 +150,7 @@ ax2.legend()
 plt.tight_layout()
 plt.show()
 
-with open("results1.txt", "a") as f:
+with open("results.txt", "a") as f:
     f.write("MLP - Grid Search v2: \n")
     f.write(f"Time: {elapsed_time}")
     f.write("'model__neurons_per_layer': (128,)]")
