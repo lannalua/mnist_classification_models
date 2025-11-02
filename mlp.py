@@ -100,7 +100,7 @@ ax2.legend()
 plt.tight_layout()
 plt.show()
 
-with open("results.txt", "a") as f:
+with open("results_mlp.txt", "a") as f:
     f.write("MLP: \n")
 
     f.write(f"Média treino accuracy: {np.mean(train_acc)}\n")
@@ -115,5 +115,5 @@ with open("results.txt", "a") as f:
     f.write(f"Perda no teste: {test_loss:.4f}\n")
     f.close()
 
-print("Resultados salvos em results.txt")
+print("Resultados salvos em results_mlp.txt")
 

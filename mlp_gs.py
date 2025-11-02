@@ -150,7 +150,7 @@ ax2.legend()
 plt.tight_layout()
 plt.show()
 
-with open("results.txt", "a") as f:
+with open("results_mlp.txt", "a") as f:
     f.write("MLP - Grid Search v2: \n")
     f.write(f"Time: {elapsed_time}")
     f.write("'model__neurons_per_layer': (128,)]")
@@ -166,4 +166,4 @@ with open("results.txt", "a") as f:
     f.write(f"Perda no teste: {test_loss:.4f}\n")
     f.close()
 
-print("Resultados salvos em results.txt")
+print("Resultados salvos em results_mlp.txt")
