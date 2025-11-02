@@ -8,7 +8,9 @@ from keras.layers import Flatten, Dense, Dropout
 from scikeras.wrappers import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import classification_report, confusion_matrix
+import time 
 
+start_time = time.perf_counter()
 # Encapsular a criação do modelo em uma função
 def create_model(neurons_per_layer=(256, 128), dropout_rate=0.3, optimizer='adam', activation='relu'):
   model = Sequential()
@@ -26,7 +28,7 @@ def create_model(neurons_per_layer=(256, 128), dropout_rate=0.3, optimizer='adam
 
 
 param_grid = {
-    'model__neurons_per_layer': [(256,), (256, 128)],
+    'model__neurons_per_layer': [(256,), (256, 128), (128,)],
     'model__dropout_rate': [0.3, 0.4],
     'batch_size': [64, 128],
     'model__optimizer': ['adam', 'rmsprop'],
@@ -79,6 +81,9 @@ history_best_mlp = best_mlp_model.fit(x_train, y_train_cat, validation_split=0.1
                                       batch_size=grid_result.best_params_[
                                           'batch_size'],
                                       callbacks=[es])
+
+end_time = time.perf_counter()
+elapsed_time = (end_time - start_time)/60
 
 train_loss_best = history_best_mlp.history['loss']
 val_loss_best = history_best_mlp.history['val_loss']
@@ -144,3 +149,21 @@ ax2.legend()
 
 plt.tight_layout()
 plt.show()
+
+with open("results1.txt", "a") as f:
+    f.write("MLP - Grid Search v2: \n")
+    f.write(f"Time: {elapsed_time}")
+    f.write("'model__neurons_per_layer': (128,)]")
+    f.write(str(grid_result.best_params_))
+    f.write("\n")
+
+    f.write(f"Média treino accuracy: {np.mean(train_acc_best)}\n")
+    f.write(f"Média validação accuracy: {np.mean(val_acc_best)}\n")
+    f.write(f"Média treino loss: {np.mean(train_loss_best)}\n")
+    f.write(f"Média validação loss: {np.mean(val_loss_best)}\n")
+
+    f.write(f"Acurácia no teste: {test_acc:.4f}\n")
+    f.write(f"Perda no teste: {test_loss:.4f}\n")
+    f.close()
+
+print("Resultados salvos em results.txt")

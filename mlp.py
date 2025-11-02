@@ -99,3 +99,21 @@ ax2.legend()
 
 plt.tight_layout()
 plt.show()
+
+with open("results.txt", "a") as f:
+    f.write("MLP: \n")
+
+    f.write(f"Média treino accuracy: {np.mean(train_acc)}\n")
+    f.write(f"Média validação accuracy: {np.mean(val_acc)}\n")
+    f.write(f"Média treino loss: {np.mean(train_loss)}\n")
+    f.write(f"Média validação loss: {np.mean(val_loss)}\n")
+
+    f.write(f"Média validação accuracy: {np.mean(val_acc)}\n")
+    f.write(f"Média treino loss: {np.mean(train_loss)}\n")
+    f.write(f"Média validação loss: {np.mean(val_loss)}\n")
+    f.write(f"Acurácia no teste: {test_acc:.4f}\n")
+    f.write(f"Perda no teste: {test_loss:.4f}\n")
+    f.close()
+
+print("Resultados salvos em results.txt")
+

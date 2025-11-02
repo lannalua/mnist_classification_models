@@ -21,3 +21,27 @@ Média validação loss: 0.07654052566398274
 Acurácia no teste: 0.9789
 Perda no teste: 0.0685
 
+
+MLP: 
+MLP - Grid Search v1: 
+Time: 25 min
+{'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': 0.3, 'model__neurons_per_layer': (256,), 'model__optimizer': 'rmsprop'}
+Média treino accuracy: 0.987666666507721
+Média validação accuracy: 0.9825333237648011
+Média treino loss: 0.038764575868844985
+Média validação loss: 0.062199833989143374
+Acurácia no teste: 0.9812
+Perda no teste: 0.0655
+OBS: Overfit
+
+MLP - Grid Search v2: 
+Time: 45 min
+att: 'model__neurons_per_layer': (128,)
+{'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': 0.4, 'model__neurons_per_layer': (256, 128), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9817407369613648
+Média validação accuracy: 0.9827999949455262
+Média treino loss: 0.0570231944322586
+Média validação loss: 0.05993145853281021
+Acurácia no teste: 0.9819
+Perda no teste: 0.0615
+
