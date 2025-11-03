@@ -1,0 +1,17 @@
+CNN v1: 
+Time: 4.894196229733336 min 
+Média treino accuracy: 0.9603111028671265
+Média validação accuracy: 0.9881666660308838
+Média treino loss:0.1306777834892273
+Média validação loss: 0.04517147243022919
+Acurácia no teste: 0.9878
+Perda no teste: 0.0380
+
+CNN v2: 
+Time: 8.68619173765 min 
+Média treino accuracy: 0.984489415373121
+Média validação accuracy: 0.9863095283508301
+Média treino loss:0.04978847157742296
+Média validação loss: 0.05595071081604276
+Acurácia no teste: 0.9912
+Perda no teste: 0.0284

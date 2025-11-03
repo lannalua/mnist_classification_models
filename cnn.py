@@ -6,9 +6,11 @@ import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
 from tensorflow.keras.layers import Conv2D, Input, MaxPooling2D, BatchNormalization, Flatten, Dense, Dropout # type: ignore
 from tensorflow.keras.models import Sequential # type: ignore
-# import tensorflow as tf 
 
-# tf.device("GPU:0")
+import time
+
+start_time = 0
+start_time = time.perf_counter()
 
 cnn = Sequential([
     Input(shape=(28,28,1)),
@@ -27,6 +29,8 @@ cnn.compile(optimizer='adam', loss='categorical_crossentropy',
             metrics=['accuracy'])
 history_cnn = cnn.fit(x_train_cnn, y_train_cat, validation_split=0.1,
                       epochs=12, batch_size=128, callbacks=[es])
+end_time = time.perf_counter()
+elapsed_time = (end_time - start_time)/60
 
 #histórico de métricas
 
@@ -97,3 +101,17 @@ ax2.legend()
 
 plt.tight_layout()
 plt.show()
+
+with open("results_cnn.txt", "a") as f:
+    f.write("CNN v1: \n")
+    f.write(f"Time: {elapsed_time} min \n")
+    f.write(f"Média treino accuracy: {np.mean(acc)}\n")
+    f.write(f"Média validação accuracy: {np.mean(val_acc)}\n")
+    f.write(f"Média treino loss:{np.mean(loss)}\n")
+    f.write(f"Média validação loss: {np.mean(val_loss)}\n")
+
+    f.write(f"Acurácia no teste: {test_acc:.4f}\n")
+    f.write(f"Perda no teste: {test_loss:.4f}\n\n")
+    f.close()
+
+print("Resultados salvos em results_cnn.txt")
