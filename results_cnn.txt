@@ -15,3 +15,82 @@ Média treino loss:0.04978847157742296
 Média validação loss: 0.05595071081604276
 Acurácia no teste: 0.9912
 Perda no teste: 0.0284
+
+melhor:
+CNN - Grid Search v1: 
+Time: 153.52350683808334
+{'batch_size': 128, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7ac0d2e48230>], 'epochs': 12, 'model__conv_filters': (32, 64), 'model__dense_units': (256,), 'model__dropout_rate': 0.3, 'model__kernel_size': (3, 3), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9970277845859528
+Média validação accuracy: 0.9974166601896286
+Média treino loss: 0.009329107822850347
+Média validação loss: 0.00843162799719721
+Acurácia no teste: 0.9921
+Perda no teste: 0.0311
+
+ v1: param_grid = {
+
+    "model__conv_filters": [(32,), (32, 64)],   
+    "model__dense_units": [(128,), (256,)],
+
+    "model__kernel_size": [(3, 3)],                 
+    "model__dropout_rate": [0.3],                   
+    "model__optimizer": ["adam"],                   
+    "batch_size": [128],                             
+    "epochs": [12],
+    "callbacks": [[es]]
+}
+
+CNN - Grid Search v2:
+Melhores parâmetros:
+ {'batch_size': 128, 
+ 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7cf004cde510>],
+'epochs': 5, 
+'model__conv_filters': (32, 64), 
+'model__dense_units': (128,), 
+'model__dropout_rate': 0.3, 
+'model__kernel_size': (3, 3), 
+'model__optimizer': 'adam'}
+
+CNN - Grid Search v3: 
+Time: 161.67017588765
+{'batch_size': 128, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7ac10aa4b680>], 'epochs': 5, 'model__conv_filters': (32, 64), 'model__dense_units': (128,), 'model__dropout_rate': 0.3, 'model__kernel_size': (3, 3), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9925740838050843
+Média validação accuracy: 0.990833330154419
+Média treino loss: 0.022578958049416543
+Média validação loss: 0.041219472885131836
+Acurácia no teste: 0.9897
+Perda no teste: 0.0299
+
+v3: param_grid = {
+    "model__conv_filters": [(32,), (32, 64)],
+    "model__dense_units": [(128,), (256,)],
+
+    "model__kernel_size": [(3, 3)],
+    "model__dropout_rate": [0.2, 0.3, 0.4],
+    "model__optimizer": ["adam"],
+    "batch_size": [128],
+    "epochs": [5],
+    "callbacks": [[es]]
+}
+
+CNN - Grid Search v4: 
+Time: 224.3550534399333
+{'batch_size': 128, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7ac0d3b48ad0>], 'epochs': 7, 'model__conv_filters': (32, 64), 'model__dense_units': (128,), 'model__dropout_rate': 0.3, 'model__kernel_size': (3, 3), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9923444390296936
+Média validação accuracy: 0.9910333395004273
+Média treino loss: 0.023811094276607037
+Média validação loss: 0.03657391667366028
+Acurácia no teste: 0.9881
+Perda no teste: 0.0376
+
+v4: param_grid = {
+    "model__conv_filters": [(32,), (32, 64)],
+    "model__dense_units": [(128,), (256,)],
+
+    "model__kernel_size": [(3, 3)],
+    "model__dropout_rate": [0.2, 0.3, 0.4],
+    "model__optimizer": ["adam"],
+    "batch_size": [128],
+    "epochs": [7],
+    "callbacks": [[es]]
+}

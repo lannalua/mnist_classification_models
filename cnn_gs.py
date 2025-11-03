@@ -2,11 +2,15 @@ import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
 from main import *
 import numpy as np
+import time
 from keras.layers import Conv2D, Input, MaxPooling2D, BatchNormalization, Flatten, Dense, Dropout
 from keras.models import Sequential
 from scikeras.wrappers import KerasClassifier
 from sklearn.model_selection import GridSearchCV
 from keras.callbacks import EarlyStopping  # Import EarlyStopping
+
+start_time = 0
+start_time = time.perf_counter()
 
 es = EarlyStopping(monitor='val_loss', patience=3, restore_best_weights=True)
 
@@ -56,7 +60,7 @@ param_grid = {
     "model__dense_units": [(128,), (256,)],
 
     "model__kernel_size": [(3, 3)],
-    "model__dropout_rate": [0.3],
+    "model__dropout_rate": [0.2, 0.3, 0.4],
     "model__optimizer": ["adam"],
     "batch_size": [128],
     "epochs": [5],
@@ -84,6 +88,8 @@ history_best_cnn = best_cnn_model.fit(x_train_cnn, y_train_cat, validation_split
                                       batch_size=grid_result.best_params_[
                                           'batch_size'],
                                       callbacks=[es])
+end_time = time.perf_counter()
+elapsed_time = (end_time - start_time)/60
 
 train_loss_best = history_best_cnn.history['loss']
 val_loss_best = history_best_cnn.history['val_loss']
@@ -145,3 +151,20 @@ ax2.legend()
 
 plt.tight_layout()
 plt.show()
+
+with open("results_cnn.txt", "a") as f:
+    f.write("CNN - Grid Search v4: \n")
+    f.write(f"Time: {elapsed_time}\n")
+    f.write(str(grid_result.best_params_))
+    f.write("\n")
+
+    f.write(f"Média treino accuracy: {np.mean(train_acc_best)}\n")
+    f.write(f"Média validação accuracy: {np.mean(val_acc_best)}\n")
+    f.write(f"Média treino loss: {np.mean(train_loss_best)}\n")
+    f.write(f"Média validação loss: {np.mean(val_loss_best)}\n")
+
+    f.write(f"Acurácia no teste: {test_acc:.4f}\n")
+    f.write(f"Perda no teste: {test_loss:.4f}\n")
+    f.close()
+
+print("Resultados salvos em results_cnn.txt")

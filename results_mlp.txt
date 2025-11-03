@@ -91,7 +91,19 @@ MLP - Bayesiana v1:
 
 Melhor score (acurácia): 0.9721
 Melhores parâmetros encontrados:
-OrderedDict({'batch_size': 32, 'model__activation': 'relu', 'model__dropout_rate': 0.4, 'model__neurons_per_layer': 256, 'model__num_hidden_layers': 2, 'model__optimizer': 'adam'})
+OrderedDict({'batch_size': 32, 'model__activation': 'relu', 
+             'model__dropout_rate': 0.4, 'model__neurons_per_layer': 256, 
+             'model__num_hidden_layers': 2, 'model__optimizer': 'adam'})
+
+MLP - Bayesiana V2:
+
+--- Otimização Concluída ---
+Melhor score (acurácia): 0.9750
+Melhores parâmetros encontrados:
+OrderedDict({'batch_size': 128, 'model_activation': 'relu', 
+            'modeldropout_rate': 0.3196094155024256, 'modelneurons_per_layer': 256, 
+            'modelnum_hidden_layers': 2, 'model_optimizer': 'adam'})
+
 
 MLP - Bayesiana v3: 
 Time: 31.971901010616666 min 
