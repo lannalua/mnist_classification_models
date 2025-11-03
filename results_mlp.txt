@@ -87,3 +87,42 @@ Média validação loss: 0.06016521621495485
 Acurácia no teste: 0.9789
 Perda no teste: 0.0659
 
+MLP - Bayesiana v1:
+
+Melhor score (acurácia): 0.9721
+Melhores parâmetros encontrados:
+OrderedDict({'batch_size': 32, 'model__activation': 'relu', 'model__dropout_rate': 0.4, 'model__neurons_per_layer': 256, 'model__num_hidden_layers': 2, 'model__optimizer': 'adam'})
+
+MLP - Bayesiana v3: 
+Time: 31.971901010616666 min 
+OrderedDict({'batch_size': 64, 'model__activation': 'relu', 'model__dropout_rate': 0.2, 'model__neurons_per_layer': 256, 'model__num_hidden_layers': 2, 'model__optimizer': 'adam'})
+Média treino accuracy: 0.988018524646759
+Média validação accuracy: 0.9819000124931335
+Média treino loss: 0.036392626166343686
+Média validação loss: 0.07378702610731125
+Acurácia no teste: 0.9821
+Perda no teste: 0.0658
+
+MLP - Bayesiana v4: 
+Add:  'model__dropout_rate': Real(0.2, 0.5, prior='uniform')
+Time: 41.953957240083334 min 
+OrderedDict({'batch_size': 128, 'model__activation': 'relu', 'model__dropout_rate': 0.2, 'model__neurons_per_layer': 256, 'model__num_hidden_layers': 1, 'model__optimizer': 'rmsprop'})
+Média treino accuracy: 0.9924305379390717
+Média validação accuracy: 0.9830416738986969
+Média treino loss: 0.024161667563021183
+Média validação loss: 0.06421639211475849
+Acurácia no teste: 0.9820
+Perda no teste: 0.0624
+obs: leve Overfit
+
+MLP - Bayesiana v5: 
+Add: epochs: 15. 'model__dropout_rate': Real(0.2, 0.5, prior='uniform') batch_size: tirei 128
+Time: 30.479526191583332 min 
+Melhor score: 0.9716
+OrderedDict({'batch_size': 64, 'model__activation': 'relu', 'model__dropout_rate': 0.37941412325363844, 'model__neurons_per_layer': 256, 'model__num_hidden_layers': 2, 'model__optimizer': 'adam'})
+Média treino accuracy: 0.9776527732610703
+Média validação accuracy: 0.9825416803359985
+Média treino loss: 0.07013306021690369
+Média validação loss: 0.06179945170879364
+Acurácia no teste: 0.9786
+Perda no teste: 0.0717
