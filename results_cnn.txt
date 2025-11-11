@@ -94,3 +94,86 @@ v4: param_grid = {
     "epochs": [7],
     "callbacks": [[es]]
 }
+
+
+CNN - Random Search v1: 
+Time: 196.05270757706663
+{'batch_size': 32, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x79ed6c6ee4b0>], 'epochs': 10, 'model__conv_filters': (32, 64), 'model__dense_units': (128,), 'model__dropout_rate': np.float64(0.4240196152098194), 'model__kernel_size': (3, 3), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.9921234548091888
+Média validação accuracy: 0.9917222162087759
+Média treino loss: 0.02564048394560814
+Média validação loss: 0.03827523828173677
+Acurácia no teste: 0.9901
+Perda no teste: 0.0326
+
+param_distributions = {
+    "model__conv_filters": [(32,), (32, 64)],
+    "model__dense_units": [(128,), (256,)],
+
+    "model__kernel_size": [(3, 3)],
+    "model__dropout_rate": uniform(0.2, 0.4),
+    'batch_size': [32, 64, 128],
+    'model__optimizer': ['adam', 'rmsprop','sgd'],
+    "epochs": [10],
+    "callbacks": [[es]]
+}
+
+CNN - Random Search v2: 
+Time: 255.53485829338334
+Add: 16 no batch size e tirei 128. Dropout(0.3,0.4)
+{'batch_size': 16, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7a685da64380>], 'epochs': 10, 'model__conv_filters': (32, 64), 'model__dense_units': (256,), 'model__dropout_rate': np.float64(0.4647564707009924), 'model__kernel_size': (3, 3), 'model__optimizer': 'sgd'}
+Média treino accuracy: 0.991486770766122
+Média validação accuracy: 0.9918571369988578
+Média treino loss: 0.02572291557277952
+Média validação loss: 0.03151575289666653
+Acurácia no teste: 0.9909
+Perda no teste: 0.0251
+param_distributions = {
+    "model__conv_filters": [(32,), (32, 64)],
+    "model__dense_units": [(128,), (256,)],
+
+    "model__kernel_size": [(3, 3)],
+    "model__dropout_rate": uniform(0.3, 0.4),
+    'batch_size': [16, 32, 64],
+    'model__optimizer': ['adam', 'rmsprop','sgd'],
+    "epochs": [10],
+    "callbacks": [[es]]}
+
+CNN - Bayesiana v1: 
+Time: 191.56429765781667 min 
+Melhor score: 0.9901
+OrderedDict({'batch_size': 128, 'epochs': 10, 'model__conv_filters_str': '32_64', 'model__dense_units_str': '256', 'model__dropout_rate': 0.38077041450133736, 'model__kernel_size_str': '3_3', 'model__optimizer': 'rmsprop'})
+Média treino accuracy: 0.9961805641651154
+Média validação accuracy: 0.9926666468381882
+Média treino loss: 0.012421314604580402
+Média validação loss: 0.045392549596726894
+Acurácia no teste: 0.9912
+Perda no teste: 0.0389
+
+CNN - Hyperband v1: 
+Time: 126.27474719773335 min 
+Trial 10 Complete [00h 11m 27s] 
+ val_accuracy: 0.9912499785423279 
+Best val_accuracy So Far: 0.991249978542327
+ Total elapsed time: 01h 03m 50s 
+Melhores hiperparâmetros encontrados:
+conv_blocks: 2 
+filters_0: 32 
+kernel_size: 3 
+batch_norm_0: False 
+dense_units: 128 
+dropout: 0.4 
+learning_rate: 0.001 
+filters_1: 128 
+batch_norm_1: False 
+tuner/epochs: 6 
+tuner/initial_epoch: 0 
+tuner/bracket: 0 
+tuner/round: 0 
+
+Média treino accuracy: 0.9847129649586148
+Média validação accuracy: 0.9887499941719903
+Média treino loss: 0.0504416697141197
+Média validação loss: 0.040389141274823084
+Acurácia no teste: 0.9933
+Perda no teste: 0.0218
