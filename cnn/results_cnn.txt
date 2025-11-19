@@ -150,12 +150,25 @@ Média validação loss: 0.045392549596726894
 Acurácia no teste: 0.9912
 Perda no teste: 0.0389
 
+CNN - Bayesiana v2: 
+Time: 80.95489997163334 min 
+Opção para a questão do erro de tupla 
+Melhor score: 0.9878
+OrderedDict({'batch_size': 128, 'epochs': 5, 'model__conv_filters1': 32, 'model__conv_filters2': 64, 'model__dense_units': 128, 'model__dropout_rate': 0.3190910078429987, 'model__optimizer': 'adam'})
+Média treino accuracy: 0.9941296339035034
+Média validação accuracy: 0.9915666580200195
+Média treino loss: 0.01741894129663706
+Média validação loss: 0.03390992805361748
+Acurácia no teste: 0.9911
+Perda no teste: 0.0303
+
+
 CNN - Hyperband v1: 
 Time: 126.27474719773335 min 
 Trial 10 Complete [00h 11m 27s] 
  val_accuracy: 0.9912499785423279 
 Best val_accuracy So Far: 0.991249978542327
- Total elapsed time: 01h 03m 50s 
+Total elapsed time: 01h 03m 50s 
 Melhores hiperparâmetros encontrados:
 conv_blocks: 2 
 filters_0: 32 
