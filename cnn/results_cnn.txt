@@ -190,3 +190,18 @@ Média treino loss: 0.0504416697141197
 Média validação loss: 0.040389141274823084
 Acurácia no teste: 0.9933
 Perda no teste: 0.0218
+
+CNN - Golden Section Search v1:
+--- Início GSS | Otimizando Taxa de Dropout ---
+Iteração 1: Intervalo [0.2528, 0.5000] | Testando 0.3472 e 0.4056 | Melhor Acurácia: 0.9933
+Iteração 2: Intervalo [0.2528, 0.4056] | Testando 0.3111 e 0.3472 | Melhor Acurácia: 0.9933
+Iteração 3: Intervalo [0.3111, 0.4056] | Testando 0.3472 e 0.3695 | Melhor Acurácia: 0.9933
+Iteração 4: Intervalo [0.3111, 0.3695] | Testando 0.3334 e 0.3472 | Melhor Acurácia: 0.9933
+Iteração 5: Intervalo [0.3334, 0.3695] | Testando 0.3472 e 0.3557 | Melhor Acurácia: 0.9933
+Iteração 6: Intervalo [0.3334, 0.3557] | Testando 0.3420 e 0.3472 | Melhor Acurácia: 0.9933
+Iteração 7: Intervalo [0.3420, 0.3557] | Testando 0.3472 e 0.3505 | Melhor Acurácia: 0.9933
+Iteração 8: Intervalo [0.3420, 0.3505] | Testando 0.3452 e 0.3472 | Melhor Acurácia: 0.9933
+
+--- Resultado Final ---
+✅ Taxa de Dropout Ótima Encontrada: 0.3462
+Tempo total gasto no GSS: 68.91 minutos
