@@ -205,3 +205,36 @@ Iteração 8: Intervalo [0.3420, 0.3505] | Testando 0.3452 e 0.3472 | Melhor Acu
 --- Resultado Final ---
 ✅ Taxa de Dropout Ótima Encontrada: 0.3462
 Tempo total gasto no GSS: 68.91 minutos
+
+Modelo com o dropout 0.3462
+Time: 4.988455988416664 min
+Média treino accuracy: 0.984539344906807
+Média validação accuracy: 0.9827291518449783
+Média treino loss: 0.04963571089319885
+Média validação loss: 0.06523849489167333
+Acurácia no teste: 0.9907
+Perda no teste: 0.0309
+
+CNN - Golden Section Search v2:
+--- Início GSS | Otimizando Taxa de Dropout ---
+Iteração 1: Intervalo [0.2528, 0.5000] | Testando 0.3472 e 0.4056 | Melhor Acurácia: 0.9920
+Iteração 2: Intervalo [0.2528, 0.4056] | Testando 0.3111 e 0.3472 | Melhor Acurácia: 0.9920
+Iteração 3: Intervalo [0.3111, 0.4056] | Testando 0.3472 e 0.3695 | Melhor Acurácia: 0.9928
+Iteração 4: Intervalo [0.3472, 0.4056] | Testando 0.3695 e 0.3833 | Melhor Acurácia: 0.9928
+Iteração 5: Intervalo [0.3472, 0.3833] | Testando 0.3610 e 0.3695 | Melhor Acurácia: 0.9928
+Iteração 6: Intervalo [0.3610, 0.3833] | Testando 0.3695 e 0.3748 | Melhor Acurácia: 0.9928
+Iteração 7: Intervalo [0.3610, 0.3748] | Testando 0.3663 e 0.3695 | Melhor Acurácia: 0.9928
+Iteração 8: Intervalo [0.3663, 0.3748] | Testando 0.3695 e 0.3715 | Melhor Acurácia: 0.9928
+
+--- Resultado Final ---
+✅ Taxa de Dropout Ótima Encontrada: 0.3705
+Tempo total gasto no GSS: 47.59 minutos
+
+Modelo com o dropout 0.3705
+Time: 8.029721872883334 min
+Média treino accuracy: 0.9809351861476898
+Média validação accuracy: 0.9788055618604025
+Média treino loss: 0.06115337926894426
+Média validação loss: 0.07846438698470592
+Acurácia no teste: 0.9891
+Perda no teste: 0.0350
