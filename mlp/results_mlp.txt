@@ -138,3 +138,44 @@ Média treino loss: 0.07013306021690369
 Média validação loss: 0.06179945170879364
 Acurácia no teste: 0.9786
 Perda no teste: 0.0717
+
+MLP - Hyperband v1
+Trial 8 Complete [00h 00m 26s]
+val_accuracy: 0.9558333158493042
+Best val_accuracy So Far: 0.9558333158493042
+Total elapsed time: 00h 04m 44s
+ model.add(Dropout(rate=hp.Float('dropout', min_value=0.0, max_value=0.5, step=0.1)))
+Melhores hiperparâmetros encontrados:
+num-layres: 1
+units_0: 96
+activation: relu
+dropout: 0.0
+learning_rate: 0.01
+optimizer: adam
+units_1: 96
+units_2: 96
+tuner/epochs: 6
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
+
+MLP - Hyperband v2
+Trial 10 Complete [00h 00m 39s]
+val_accuracy: 0.934166669845581
+
+Best val_accuracy So Far: 0.9434166550636292
+Total elapsed time: 00h 04m 58s
+
+Melhores hiperparâmetros encontrados:
+num-layres: 2
+units_0: 96
+activation: relu
+dropout: 0.5
+learning_rate: 0.0001
+optimizer: adam
+units_1: 224
+units_2: 256
+tuner/epochs: 6
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
