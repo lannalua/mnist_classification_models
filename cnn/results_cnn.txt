@@ -238,3 +238,144 @@ Média treino loss: 0.06115337926894426
 Média validação loss: 0.07846438698470592
 Acurácia no teste: 0.9891
 Perda no teste: 0.0350
+
+CNN - Golden Section Search v3: learning_rate, dropout, batch_size
+
+--- [1/3] Buscando LR (Fixos: BS=64, Drop=0.0) ---
+--- Início GSS | Otimizando Taxa de Dropout ---
+Iteração 1: Intervalo [-4.0000, -2.1459] | Testando -3.2918 e -2.8541 | Melhor Acurácia: 0.9908
+Iteração 2: Intervalo [-3.2918, -2.1459] | Testando -2.8541 e -2.5836 | Melhor Acurácia: 0.9908
+Iteração 3: Intervalo [-3.2918, -2.5836] | Testando -3.0213 e -2.8541 | Melhor Acurácia: 0.9908
+Iteração 4: Intervalo [-3.0213, -2.5836] | Testando -2.8541 e -2.7508 | Melhor Acurácia: 0.9922
+Iteração 5: Intervalo [-2.8541, -2.5836] | Testando -2.7508 e -2.6869 | Melhor Acurácia: 0.9922
+Iteração 6: Intervalo [-2.8541, -2.6869] | Testando -2.7902 e -2.7508 | Melhor Acurácia: 0.9922
+>>> Vencedor LR: 0.00170
+
+--- [2/3] Buscando Dropout (Fixos: LR=0.00170, BS=64) ---
+ Dropout Testado: 0.2910 -> Accuracy: 0.9908
+ Dropout Testado: 0.4090 -> Accuracy: 0.9897
+--- Início GSS | Otimizando Taxa de Dropout ---
+ Dropout Testado: 0.2180 -> Accuracy: 0.9872
+Iteração 1: Intervalo [0.1000, 0.4090] | Testando 0.2180 e 0.2910 | Melhor Acurácia: 0.9908
+ Dropout Testado: 0.3361 -> Accuracy: 0.9893
+Iteração 2: Intervalo [0.2180, 0.4090] | Testando 0.2910 e 0.3361 | Melhor Acurácia: 0.9908
+ Dropout Testado: 0.2631 -> Accuracy: 0.9910
+Iteração 3: Intervalo [0.2180, 0.3361] | Testando 0.2631 e 0.2910 | Melhor Acurácia: 0.9910
+ Dropout Testado: 0.2459 -> Accuracy: 0.9893
+Iteração 4: Intervalo [0.2180, 0.2910] | Testando 0.2459 e 0.2631 | Melhor Acurácia: 0.9910
+ Dropout Testado: 0.2738 -> Accuracy: 0.9897
+Iteração 5: Intervalo [0.2459, 0.2910] | Testando 0.2631 e 0.2738 | Melhor Acurácia: 0.9910
+ Dropout Testado: 0.2565 -> Accuracy: 0.9895
+Iteração 6: Intervalo [0.2459, 0.2738] | Testando 0.2565 e 0.2631 | Melhor Acurácia: 0.9910
+ Dropout Testado: 0.2672 -> Accuracy: 0.9912
+Iteração 7: Intervalo [0.2565, 0.2738] | Testando 0.2631 e 0.2672 | Melhor Acurácia: 0.9912
+ Dropout Testado: 0.2697 -> Accuracy: 0.9903
+Iteração 8: Intervalo [0.2631, 0.2738] | Testando 0.2672 e 0.2697 | Melhor Acurácia: 0.9912
+ Dropout Testado: 0.2656 -> Accuracy: 0.9865
+Iteração 9: Intervalo [0.2631, 0.2697] | Testando 0.2656 e 0.2672 | Melhor Acurácia: 0.9912
+>>> Vencedor Dropout: 0.2664
+
+
+--- [3/3] Buscando Batch Size (Fixos: LR=0.00170, Drop=0.2664) ---
+   Batch Testado: 58 -> Accuracy: 0.9913
+   Batch Testado: 85 -> Accuracy: 0.9902
+--- Início GSS | Otimizando Taxa de Dropout ---
+   Batch Testado: 42 -> Accuracy: 0.9892
+Iteração 1: Intervalo [16.0000, 85.2198] | Testando 42.4396 e 58.7802 | Melhor Acurácia: 0.9913
+   Batch Testado: 68 -> Accuracy: 0.9910
+Iteração 2: Intervalo [42.4396, 85.2198] | Testando 58.7802 e 68.8792 | Melhor Acurácia: 0.9913
+   Batch Testado: 52 -> Accuracy: 0.9892
+Iteração 3: Intervalo [42.4396, 68.8792] | Testando 52.5386 e 58.7802 | Melhor Acurácia: 0.9913
+   Batch Testado: 62 -> Accuracy: 0.9897
+Iteração 4: Intervalo [52.5386, 68.8792] | Testando 58.7802 e 62.6377 | Melhor Acurácia: 0.9913
+   Batch Testado: 56 -> Accuracy: 0.9895
+Iteração 5: Intervalo [52.5386, 62.6377] | Testando 56.3961 e 58.7802 | Melhor Acurácia: 0.9913
+   Batch Testado: 60 -> Accuracy: 0.9892
+Iteração 6: Intervalo [56.3961, 62.6377] | Testando 58.7802 e 60.2536 | Melhor Acurácia: 0.9913
+>>> Vencedor Batch Size: 59
+time: 51min
+
+Tempo Total da Busca: 127.8 minutos + 51 minutos
+
+Modelo treinado como os resultados
+Média treino accuracy: 0.9864485594961379
+Média validação accuracy: 0.9877962999873691
+Média treino loss: 0.04558230108684964
+Média validação loss: 0.04805627382463879
+Acurácia no teste: 0.9898
+Perda no teste: 0.0388
+Tempo total gasto no modelo final: 10.88 minutos
+
+CNN - Golden Section Search v4
+--- [1/3] Buscando LR (Fixos: BS=64, Drop=0.0) ---
+--- Início GSS | Otimizando Taxa de Dropout ---
+Iteração 1: Intervalo [-4.0000, -2.1459] | Testando -3.2918 e -2.8541 | Melhor Acurácia: 0.9897
+Iteração 2: Intervalo [-3.2918, -2.1459] | Testando -2.8541 e -2.5836 | Melhor Acurácia: 0.9897
+Iteração 3: Intervalo [-3.2918, -2.5836] | Testando -3.0213 e -2.8541 | Melhor Acurácia: 0.9897
+Iteração 4: Intervalo [-3.0213, -2.5836] | Testando -2.8541 e -2.7508 | Melhor Acurácia: 0.9898
+Iteração 5: Intervalo [-2.8541, -2.5836] | Testando -2.7508 e -2.6869 | Melhor Acurácia: 0.9898
+Iteração 6: Intervalo [-2.7508, -2.5836] | Testando -2.6869 e -2.6475 | Melhor Acurácia: 0.9898
+>>> Vencedor LR: 0.00215
+
+--- [2/3] Buscando Dropout (Fixos: LR=0.00215, BS=64) ---
+ Dropout Testado: 0.2910 -> Accuracy: 0.9885
+ Dropout Testado: 0.4090 -> Accuracy: 0.9903
+--- Início GSS | Otimizando Taxa de Dropout ---
+ Dropout Testado: 0.4820 -> Accuracy: 0.9902
+Iteração 1: Intervalo [0.2910, 0.6000] | Testando 0.4090 e 0.4820 | Melhor Acurácia: 0.9903
+ Dropout Testado: 0.3639 -> Accuracy: 0.9915
+Iteração 2: Intervalo [0.2910, 0.4820] | Testando 0.3639 e 0.4090 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3361 -> Accuracy: 0.9892
+Iteração 3: Intervalo [0.2910, 0.4090] | Testando 0.3361 e 0.3639 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3812 -> Accuracy: 0.9910
+Iteração 4: Intervalo [0.3361, 0.4090] | Testando 0.3639 e 0.3812 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3533 -> Accuracy: 0.9897
+Iteração 5: Intervalo [0.3361, 0.3812] | Testando 0.3533 e 0.3639 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3705 -> Accuracy: 0.9908
+Iteração 6: Intervalo [0.3533, 0.3812] | Testando 0.3639 e 0.3705 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3599 -> Accuracy: 0.9907
+Iteração 7: Intervalo [0.3533, 0.3705] | Testando 0.3599 e 0.3639 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3664 -> Accuracy: 0.9893
+Iteração 8: Intervalo [0.3599, 0.3705] | Testando 0.3639 e 0.3664 | Melhor Acurácia: 0.9915
+ Dropout Testado: 0.3624 -> Accuracy: 0.9890
+Iteração 9: Intervalo [0.3599, 0.3664] | Testando 0.3624 e 0.3639 | Melhor Acurácia: 0.9915
+>>> Vencedor Dropout: 0.3632
+
+--- [3/3] Buscando Batch Size (Fixos: LR=0.00215, Drop=0.3632) ---
+   Batch Testado: 58 -> Accuracy: 0.9903
+   Batch Testado: 85 -> Accuracy: 0.9890
+--- Início GSS | Otimizando Taxa de Dropout ---
+   Batch Testado: 42 -> Accuracy: 0.9913
+Iteração 1: Intervalo [16.0000, 85.2198] | Testando 42.4396 e 58.7802 | Melhor Acurácia: 0.9913
+   Batch Testado: 32 -> Accuracy: 0.9905
+Iteração 2: Intervalo [16.0000, 58.7802] | Testando 32.3406 e 42.4396 | Melhor Acurácia: 0.9913
+   Batch Testado: 48 -> Accuracy: 0.9900
+Iteração 3: Intervalo [32.3406, 58.7802] | Testando 42.4396 e 48.6812 | Melhor Acurácia: 0.9913
+   Batch Testado: 38 -> Accuracy: 0.9908
+Iteração 4: Intervalo [32.3406, 48.6812] | Testando 38.5821 e 42.4396 | Melhor Acurácia: 0.9913
+   Batch Testado: 44 -> Accuracy: 0.9892
+Iteração 5: Intervalo [38.5821, 48.6812] | Testando 42.4396 e 44.8237 | Melhor Acurácia: 0.9913
+   Batch Testado: 40 -> Accuracy: 0.9897
+Iteração 6: Intervalo [38.5821, 44.8237] | Testando 40.9662 e 42.4396 | Melhor Acurácia: 0.9913
+>>> Vencedor Batch Size: 41
+
+Tempo Total do Learning Rate: 55.1 minutos
+
+Tempo Total do Dropout: 73.8 minutos
+
+Tempo Total do Batch_size: 55.6 minutos
+
+Tempo Total da Busca: 184.5 minutos
+
+Modelo treinado com os resultados
+Config: LR=0.002151868508869105 | Drop=0.36315561749642483 | Batch=41
+
+Média treino accuracy: 0.9794370532035828
+Média validação accuracy: 0.9866999983787537
+Média treino loss: 0.0711595058441162
+Média validação loss: 0.0536638393998146
+Acurácia no teste: 0.9868
+Perda no teste: 0.0448
+
+Tempo total gasto no modelo final: 5.84 minutos
+Modelo Final Treinado!

@@ -179,3 +179,46 @@ tuner/epochs: 6
 tuner/initial_epoch: 0
 tuner/bracket: 0
 tuner/round: 0
+
+MLP - Hyperband v3
+Trial 30 Complete [00h 01m 42s]
+val_accuracy: 0.9101666808128357
+
+Best val_accuracy So Far: 0.9733333587646484
+Total elapsed time: 00h 21m 24s
+
+Melhores hiperparâmetros encontrados:
+num-layres: 3
+units_0: 128
+activation: tanh
+dropout: 0.30000000000000004
+learning_rate: 0.001
+optimizer: adam
+units_1: 192
+units_2: 96
+tuner/epochs: 15
+tuner/initial_epoch: 5
+tuner/bracket: 2
+tuner/round: 2
+tuner/trial_id: 0013
+
+Acurácia no conjunto de teste: 0.9721
+
+MLP - Hyperband v4:
+Aumentei as épocas e coloquei batch normalização
+Melhores hiperparâmetros encontrados:
+num-layres: 4
+units_0: 256
+batch_norm: True
+activation: relu
+dropout: 0.1
+learning_rate: 0.0001
+optimizer: adam
+units_1: 32
+units_2: 160
+units_3: 128
+tuner/epochs: 20
+tuner/initial_epoch: 0
+tuner/bracket: 0
+tuner/round: 0
+Acurácia no conjunto de teste: 0.9775
