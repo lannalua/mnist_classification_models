@@ -95,6 +95,16 @@ v4: param_grid = {
     "callbacks": [[es]]
 }
 
+CNN - Grid Search v5: 
+Add  "model__dropout_rate": [0.3, 0.3462, 0.3705],
+Time: 174.47965763965001
+{'batch_size': 128, 'callbacks': [<keras.src.callbacks.early_stopping.EarlyStopping object at 0x7c50e0681a00>], 'epochs': 7, 'model__conv_filters': (32, 64), 'model__dense_units': (256,), 'model__dropout_rate': 0.3462, 'model__kernel_size': (3, 3), 'model__optimizer': 'adam'}
+Média treino accuracy: 0.993004634976387
+Média validação accuracy: 0.9908333420753479
+Média treino loss: 0.02114291931502521
+Média validação loss: 0.037517085671424866
+Acurácia no teste: 0.9920
+Perda no teste: 0.0269
 
 CNN - Random Search v1: 
 Time: 196.05270757706663

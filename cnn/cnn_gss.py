@@ -11,7 +11,6 @@ from keras.callbacks import EarlyStopping
 from keras.optimizers import Adam
 
 
-
 def train_evaluate(lr, batch_size, dropout_rate):
 
   batch_size = int(batch_size)
@@ -206,6 +205,7 @@ history_final = model_final.fit(
     callbacks=[es],
     verbose=1 #type: ignore
 )
+
 end_time_gss = time.perf_counter()
 print(
     f"Tempo total gasto no modelo final: {(end_time_gss - start_time_gss)/60:.2f} minutos")

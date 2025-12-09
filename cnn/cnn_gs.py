@@ -58,7 +58,6 @@ cnn_model = KerasClassifier(
 param_grid = {
     "model__conv_filters": [(32,), (32, 64)],
     "model__dense_units": [(128,), (256,)],
-
     "model__kernel_size": [(3, 3)],
     "model__dropout_rate": [0.2, 0.3, 0.4],
     "model__optimizer": ["adam"],
