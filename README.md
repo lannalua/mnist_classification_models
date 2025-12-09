@@ -6,3 +6,18 @@ Esse repositório mostra a aplicação dos meus estudos de Modelos de Classifica
 - Regressão Logística
 - MLP - Multilayer perceptron
 - CNN - Convolutional Neural Network
+
+## Métodos de Otimização Utilizados
+
+- GS: Grid Search
+- RS: Random Search
+- Bayesiana
+- Hyperband
+- GJO: Golden Jackal Optmization
+
+### Divisão de Pastas
+
+- \cnn - modelos treinados com CNN
+- \mlp - modelos treinados com MLP
+
+### Melhores Resultados
