@@ -357,3 +357,34 @@ Média validação loss: 0.06682672564472471
 Acurácia no teste: 0.9911
 Perda no teste: 0.0290
 
+CNN - GJO -V1
+Iteração 1/7 | Melhor val_acc = 0.9902
+Iteração 2/7 | Melhor val_acc = 0.9877
+Iteração 3/7 | Melhor val_acc = 0.9878
+Iteração 4/7 | Melhor val_acc = 0.9883
+Iteração 5/7 | Melhor val_acc = 0.9882
+Iteração 6/7 | Melhor val_acc = 0.9883
+Iteração 7/7 | Melhor val_acc = 0.9878
+
+Melhores hiperparâmetros encontrados:
+Dropout rate: 0.25201115429328586
+Conv filters: (32,)
+Dense units: (128,)
+
+Epoch 1/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 58s 130ms/step - accuracy: 0.8981 - loss: 0.3500 - val_accuracy: 0.9828 - val_loss: 0.1961
+Epoch 2/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 49s 117ms/step - accuracy: 0.9838 - loss: 0.0507 - val_accuracy: 0.9867 - val_loss: 0.0478
+Epoch 3/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 51s 121ms/step - accuracy: 0.9908 - loss: 0.0285 - val_accuracy: 0.9868 - val_loss: 0.0463
+Epoch 4/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 81s 118ms/step - accuracy: 0.9932 - loss: 0.0193 - val_accuracy: 0.9860 - val_loss: 0.0667
+Epoch 5/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 50s 119ms/step - accuracy: 0.9950 - loss: 0.0157 - val_accuracy: 0.9877 - val_loss: 0.0594
+Epoch 6/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 49s 116ms/step - accuracy: 0.9953 - loss: 0.0135 - val_accuracy: 0.9870 - val_loss: 0.0644
+
+Tempo total de execução: 7567.73 segundos
+
+Acurácia do modelo final no conjunto de teste: 0.9846
+Perda do modelo final no conjunto de teste: 0.0502

@@ -3,11 +3,12 @@ import seaborn as sns
 from sklearn.metrics import classification_report, confusion_matrix
 import tensorflow as tf
 import numpy as np
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from main import *
 import time
-from keras.layers import Conv2D, MaxPooling2D, Input, BatchNormalization, Flatten, Dense, Dropout
-from keras.models import Sequential
-from keras.callbacks import EarlyStopping
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Input, BatchNormalization, Flatten, Dense, Dropout
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.callbacks import EarlyStopping
 
 
 def train_evaluate(dropout_rate, x_train_cnn, y_train_cat):
@@ -30,7 +31,7 @@ def train_evaluate(dropout_rate, x_train_cnn, y_train_cat):
     cnn.compile(optimizer='adam', loss='categorical_crossentropy',
                 metrics=['accuracy'])
     history_cnn = cnn.fit(x_train_cnn, y_train_cat, validation_split=0.1,
-                          epochs=12, batch_size=128, callbacks=[es], verbose=0)  # type: ignore
+                          epochs=12, batch_size=128, callbacks=[es], verbose=0)  
     best_accuracy = max(history_cnn.history['val_accuracy'])
 
     return best_accuracy
