@@ -388,3 +388,28 @@ Tempo total de execução: 7567.73 segundos
 
 Acurácia do modelo final no conjunto de teste: 0.9846
 Perda do modelo final no conjunto de teste: 0.0502
+
+CNN - GJO -V2:
+Melhores hiperparâmetros encontrados:
+Dropout rate: 0.23349367425378903
+Conv filters: (32, 64)
+Dense units: (256,)
+Tempo total: 8310.19s
+
+Epoch 1/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 69s 155ms/step - accuracy: 0.8976 - loss: 0.4019 - val_accuracy: 0.9502 - val_loss: 0.1695
+Epoch 2/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 80s 151ms/step - accuracy: 0.9858 - loss: 0.0463 - val_accuracy: 0.9895 - val_loss: 0.0371
+Epoch 3/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 83s 153ms/step - accuracy: 0.9906 - loss: 0.0295 - val_accuracy: 0.9913 - val_loss: 0.0337
+Epoch 4/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 65s 154ms/step - accuracy: 0.9919 - loss: 0.0243 - val_accuracy: 0.9882 - val_loss: 0.0448
+Epoch 5/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 66s 155ms/step - accuracy: 0.9946 - loss: 0.0171 - val_accuracy: 0.9923 - val_loss: 0.0347
+Epoch 6/12
+422/422 ━━━━━━━━━━━━━━━━━━━━ 65s 155ms/step - accuracy: 0.9948 - loss: 0.0146 - val_accuracy: 0.9912 - val_loss: 0.0383
+
+Tempo total de execução: 8310.19 segundos
+
+Acurácia do modelo final no conjunto de teste: 0.9902
+Perda do modelo final no conjunto de teste: 0.0294

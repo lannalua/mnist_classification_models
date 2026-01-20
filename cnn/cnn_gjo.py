@@ -4,9 +4,9 @@ import time
 from keras.layers import Conv2D, Input, MaxPooling2D, BatchNormalization, Flatten, Dense, Dropout
 from keras.models import Sequential
 from keras.callbacks import EarlyStopping
-from mealpy import FloatVar, GJO
+from mealpy.swarm_based import GJO
+from mealpy import FloatVar
 
-start_time = time.perf_counter()
 
 CONV_FILTERS_SPACE = [(32,), (32, 64)]
 DENSE_UNITS_SPACE = [(128,), (256,)]
@@ -53,110 +53,66 @@ def create_model_cnn(
     return model
 
 def objective_function(solution):
-    """
-    solution = [dropout_rate, conv_idx, dense_idx]
-    """
     dropout_rate = solution[0]
-    conv_filters = CONV_FILTERS_SPACE[int(solution[1])]
-    dense_units = DENSE_UNITS_SPACE[int(solution[2])]
+
+    conv_idx = int(np.round(solution[1]))
+    dense_idx = int(np.round(solution[2]))
+
+    conv_filters = CONV_FILTERS_SPACE[conv_idx]
+    dense_units = DENSE_UNITS_SPACE[dense_idx]
 
     model = create_model_cnn(
         conv_filters=conv_filters,
-        kernel_size=(3, 3),
         dense_units=dense_units,
-        dropout_rate=dropout_rate,
-        optimizer="adam"
+        dropout_rate=dropout_rate
     )
 
     history = model.fit(
         x_train_cnn,
         y_train_cat,
         validation_split=0.1,
-        epochs=3,                 # poucas épocas (otimização)
+        epochs=3,          # poucas épocas para otimização
         batch_size=128,
         callbacks=[es],
         verbose=0
     )
 
     best_val_acc = max(history.history["val_accuracy"])
-    return 1 - best_val_acc      # minimização
+    return 1 - best_val_acc   # minimização
 
 
-def initialize_population(pop_size):
-    population = []
-    for _ in range(pop_size):
-        dropout = np.random.uniform(DROPOUT_MIN, DROPOUT_MAX)
-        conv_idx = np.random.randint(0, len(CONV_FILTERS_SPACE))
-        dense_idx = np.random.randint(0, len(DENSE_UNITS_SPACE))
-        population.append([dropout, conv_idx, dense_idx])
-    return np.array(population, dtype=float)
+problem = {
+    "obj_func": objective_function,
+    "bounds": [
+        FloatVar(lb=DROPOUT_MIN, ub=DROPOUT_MAX),           # dropout
+        FloatVar(lb=0, ub=len(CONV_FILTERS_SPACE) - 1),     # conv idx
+        FloatVar(lb=0, ub=len(DENSE_UNITS_SPACE) - 1)       # dense idx
+    ],
+    "minmax": "min"
+}
 
+start_time = time.perf_counter()
 
-
-def golden_jackal_optimization(
-    pop_size=5,
-    iterations=7
-):
-    population = initialize_population(pop_size)
-    fitness = np.array([objective_function(p) for p in population])
-
-    # líderes
-    sorted_idx = np.argsort(fitness)
-    alpha_male = population[sorted_idx[0]]
-    alpha_female = population[sorted_idx[1]]
-
-    for t in range(iterations):
-        for i in range(pop_size):
-            r1, r2 = np.random.rand(), np.random.rand()
-
-            population[i] = (
-                population[i]
-                + r1 * (alpha_male - population[i])
-                + r2 * (alpha_female - population[i])
-            )
-
-            # Limites
-            population[i][0] = np.clip(
-                population[i][0], DROPOUT_MIN, DROPOUT_MAX
-            )
-            population[i][1] = np.clip(
-                population[i][1], 0, len(CONV_FILTERS_SPACE) - 1
-            )
-            population[i][2] = np.clip(
-                population[i][2], 0, len(DENSE_UNITS_SPACE) - 1
-            )
-
-        fitness = np.array([objective_function(p) for p in population])
-        sorted_idx = np.argsort(fitness)
-
-        alpha_male = population[sorted_idx[0]]
-        alpha_female = population[sorted_idx[1]]
-
-        print(
-            f"Iteração {t+1}/{iterations} "
-            f"| Melhor val_acc = {1 - fitness[sorted_idx[0]]:.4f}"
-        )
-
-    return alpha_male
-
-# =========================================================
-# Execução do GJO
-# =========================================================
-best_solution = golden_jackal_optimization(
-    pop_size=5,
-    iterations=7
+model = GJO.OriginalGJO(
+    epoch=7,        # iterações
+    pop_size=5      # população
 )
+
+best_agent = model.solve(problem)
 
 end_time = time.perf_counter()
 
+best_solution = best_agent.solution
+
 best_dropout = best_solution[0]
-best_conv_filters = CONV_FILTERS_SPACE[int(best_solution[1])]
-best_dense_units = DENSE_UNITS_SPACE[int(best_solution[2])]
+best_conv_filters = CONV_FILTERS_SPACE[int(round(best_solution[1]))]
+best_dense_units = DENSE_UNITS_SPACE[int(round(best_solution[2]))]
 
 print("\nMelhores hiperparâmetros encontrados:")
 print("Dropout rate:", best_dropout)
 print("Conv filters:", best_conv_filters)
 print("Dense units:", best_dense_units)
+print(f"Tempo total: {end_time - start_time:.2f}s")
 
 # =========================================================
 # Treinamento FINAL do modelo
@@ -184,7 +140,6 @@ final_model.fit(
 # =========================================================
 
 print(f"\nTempo total de execução: {end_time - start_time:.2f} segundos")
-
 test_loss, test_acc = final_model.evaluate(x_test_cnn, y_test_cat, verbose=0)
 
 print(f"Acurácia do modelo final no conjunto de teste: {test_acc:.4f}")
